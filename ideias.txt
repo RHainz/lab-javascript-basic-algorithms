@@ -1,0 +1,9 @@
+separa string
+
+let separado = driver.split("").join(" ") - vira array com letras com driver split e ainda coloca um espaço com join.
+
+console.log(separado.toUpperCase())
+
+inverte string
+let inverso = driver.split("").reverse().join("") - vira array com letras, usando a função reverse, inverte a string e acrescenta com join.
+console.log(inverso)
