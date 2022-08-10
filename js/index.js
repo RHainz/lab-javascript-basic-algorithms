@@ -83,7 +83,7 @@ if  (hacker1<hacker2) {      // Compara as strings lexicalmente. Se hacker1 é m
 
 // Bônus 1
 
-let loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus consectetur, vestibulum orci vitae, lacinia tellus. Cras tincidunt, diam vel tempus faucibus, mauris nulla auctor velit, vitae fermentum arcu libero ut orci. Vivamus tristique varius laoreet. Fusce gravida, nunc ut pellentesque feugiat, justo turpis porttitor turpis, et ornare ante mi ac ligula. Mauris venenatis magna sapien, eu viverra lorem maximus vel. Nam cursus tristique mi nec dictum. Nunc tincidunt elit sit amet viverra laoreet. Nulla facilisi. Sed vestibulum cursus nisl. Praesent vitae purus eu velit ultricies commodo non eget libero. Duis congue libero quis finibus eleifend. Ut mollis urna at nisl vulputate, a facilisis elit gravida. // Etiam vitae placerat augue, vel faucibus nunc. Phasellus quis lacus non magna vehicula bibendum. Quisque ac varius mauris, sit amet pulvinar urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec pretium dolor quis lacinia semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec at erat mollis, sollicitudin elit ac, accumsan dui. Cras condimentum urna iaculis, sollicitudin lacus sed, tristique velit. Curabitur eget consequat mi, nec dapibus massa. Pellentesque elementum, orci sed consectetur tempus, diam augue tristique erat, non consequat lorem ex eu eros. Pellentesque maximus nunc sed erat luctus eleifend. Vivamus mollis pretium leo. Phasellus mollis convallis lacus sed consectetur. Nam ut elementum justo. // Aliquam erat volutpat. Cras luctus imperdiet euismod. Pellentesque eu felis eu magna sagittis dapibus. Suspendisse congue consequat orci vel bibendum. Aenean euismod arcu in sem feugiat placerat. Quisque venenatis pharetra ex. In vulputate congue dui vitae varius. Maecenas nisl leo, condimentum mollis imperdiet et, aliquet at elit. Mauris luctus volutpat elit eu viverra. Vivamus vulputate a dui sit amet imperdiet. Duis varius libero id ipsum ullamcorper rhoncus."
+let loremIpsum = "Lorem ipsum dolor sit amet, et, consectetur adipiscing elit. Curabitur non purus consectetur, vestibulum orci vitae, lacinia tellus. Cras tincidunt, diam vel tempus faucibus, mauris nulla auctor velit, vitae fermentum arcu libero ut orci. Vivamus tristique varius laoreet. Fusce gravida, nunc ut pellentesque feugiat, justo turpis porttitor turpis, et ornare ante mi ac ligula. Mauris venenatis magna sapien, eu viverra lorem maximus vel. Nam cursus tristique mi nec dictum. Nunc tincidunt elit sit amet viverra laoreet. Nulla facilisi. Sed vestibulum cursus nisl. Praesent vitae purus eu velit ultricies commodo non eget libero. Duis congue libero quis finibus eleifend. Ut mollis urna at nisl vulputate, a facilisis elit gravida. // Etiam vitae placerat augue, vel faucibus nunc. Phasellus quis lacus non magna vehicula bibendum. Quisque ac varius mauris, sit amet pulvinar urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec pretium dolor quis lacinia semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec at erat mollis, sollicitudin elit ac, accumsan dui. Cras condimentum urna iaculis, sollicitudin lacus sed, tristique velit. Curabitur eget consequat mi, nec dapibus massa. Pellentesque elementum, orci sed consectetur tempus, diam augue tristique erat, non consequat lorem ex eu eros. Pellentesque maximus nunc sed erat luctus eleifend. Vivamus mollis pretium leo. Phasellus mollis convallis lacus sed consectetur. Nam ut elementum justo. // Aliquam erat volutpat. Cras luctus imperdiet euismod. Pellentesque eu felis eu magna sagittis dapibus. Suspendisse congue consequat orci vel bibendum. Aenean euismod arcu in sem feugiat placerat. Quisque venenatis pharetra ex. In vulputate congue dui vitae varius. Maecenas nisl leo, condimentum mollis imperdiet et, aliquet at elit. Mauris luctus volutpat elit eu viverra. Vivamus vulputate a dui sit amet imperdiet. Duis varius libero id ipsum ullamcorper rhoncus."
 
 // console.log(loremIpsum);
 
@@ -113,18 +113,81 @@ for (let i=0;i<=loremIpsum.length;i++){   // inicia contador que vai de 0 até o
     }
 }
 
-
-
 console.log(palavras);  // exibe a quantidade de palavras.
 
+
+let etCounter=0;
+
+for (let i=0;i<=loremIpsum.length;i++){   // inicia contador que vai de 0 até o tamanho da string.
+    if (loremIpsum.charAt(i)==="e" && loremIpsum.charAt(i+1)==="t" && loremIpsum.charAt(i-1)===" " && loremIpsum.charAt(i+2)===" ") { 
+        etCounter ++; // Soma 1 na quantidade de palavras. 
+    }
+}
+
+console.log(etCounter);
+
+let etCounter2=0;
+
+
+for (let i=0;i<=loremIpsum.length;i++){   
+    if(loremIpsum.charAt(i)==="e" && loremIpsum.charAt(i+1)==="t" && loremIpsum.charAt(i-1)===" "){
+        switch(loremIpsum.charAt(i+2)){  // procura casos especiais onde o caracter pode ser diferente de espaço.
+            case " ":
+            case ";":
+            case ",":
+            case "!":
+            case ".":
+            etCounter2++;  // Em caso positivo para qualquer um desses caracteres soma 1 no counter.
+            break;
+        }
+    }
+}
+
+
+console.log(etCounter2);
+
+
+// loremIpsum.includes()); // metodo com array.
+// console.log(words.length); // metodo com array.
+
+
+
+
+
+
+// Bonus 2:
+
+
+let phraseToCheck="Was it a car or a cat I saw?";
+
+
+
+
+let invphrase=phraseToCheck.split("").reverse().join();
+
+invphrase=invphrase.replaceAll(" ","");
+invphrase=invphrase.replaceAll(",","");
+console.log(invphrase);
+
+phraseToCheck=phraseToCheck.replaceAll(" ","");
+phraseToCheck=phraseToCheck.replaceAll(",","");
+console.log(phraseToCheck);
+
+if (phraseToCheck===invphrase){
+    console.log("Palidromo!!")
+}
 
 
 
 
 /*
-Go to lorem ipsum generator and:
+Create a new variable phraseToCheck and have it contain some string value. Write a code that will check if the value we assigned to this variable is a Palindrome. Here are some examples of palindromes:
 
-Generate 3 paragraphs. Store the text in a variable type of string.
-Make your program count the number of words in the string.
-Make your program count the number of times the Latin word et appears.
-*/
+"A man, a plan, a canal, Panama!"
+"Amor, Roma"
+"race car"
+"stack cats"
+"step on no pets"
+"taco cat"
+"put it up"
+"Was it a car or a cat I saw?" and "No 'x' in Nixon". */
